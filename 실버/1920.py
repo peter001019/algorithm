@@ -1,13 +1,9 @@
 N = int(input())
-list = []
-n = input().split()
-
-for num in n:
-    list.append(int(num))
-list.sort()
-
+list = list(map(int, input().split()))
 M = int(input())
-n = input().split()
+n = list(map(int, input().split()))
+
+list.sort()
 
 def binarySearch(start, end, num):
     mid = (start + end) // 2
@@ -24,7 +20,6 @@ def binarySearch(start, end, num):
         return print(0)
 
 for num in n:
-    num = int(num)
     if(num > list[-1] or num < list[0]):
         print(0)
     else:
