@@ -1,10 +1,25 @@
 N, S = map(int, input().split())
 nums = list(map(int, input().split()))
 
-end = 0
+start, end = 0, 0
 sum = nums[0]
 min_len = len(nums) + 1
 
+while True:
+    if sum < S:
+        end += 1
+        if end == N:
+            break
+        sum += nums[end]
+
+    else:
+        min_len = min(min_len, end - start + 1)
+        sum -= nums[start]
+        start += 1
+
+print(min_len if min_len <= len(nums) else 0)
+
+'''
 for i in range(len(nums)):
     while end < N:
         if sum >= S:
@@ -22,5 +37,4 @@ for i in range(len(nums)):
 
             end += 1  
             sum += nums[end]
-
-print(min_len if min_len <= len(nums) else 0)
+'''
