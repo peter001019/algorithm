@@ -1,5 +1,3 @@
-from itertools import permutations
-
 T = int(input())
 words = [input() for _ in range(T)]
 
