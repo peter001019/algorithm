@@ -32,6 +32,8 @@
   "editor.suggest.showColors": false,
   "files.associations": {
     "*.dbclient-js": "javascript",
-    "iostream": "cpp"
+    "iostream": "cpp",
+    "string": "cpp",
+    "string_view": "cpp"
   }
 }
