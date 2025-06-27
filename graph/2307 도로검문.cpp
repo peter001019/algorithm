@@ -14,26 +14,26 @@ int dijkstra(int expNode1, int expNode2){
     priority_queue<pair<int, int>> pq;
     for(int i = 1; i < N + 1; i++) dist[i] = INF;
 
-    pq.push({1, 0});
+    pq.push({0, 1});
     dist[1] = 0;
 
     while(!pq.empty()){
-        int cur_node = pq.top().first;
-        int cur_cost = -pq.top().second;
+        int cur_node = pq.top().second;
+        int cur_cost = -pq.top().first;
         pq.pop();
 
         if (dist[cur_node] < cur_cost) continue;
 
         for(int i = 0; i < graph[cur_node].size(); i++){
-            int dest = graph[cur_node][i].first;
-            int via_cost = cur_cost + graph[cur_node][i].second;
+            int dest = graph[cur_node][i].second;
+            int via_cost = cur_cost + graph[cur_node][i].first;
 
             //막아진 간선은 skip
             if((cur_node == expNode1 && dest == expNode2) || (cur_node == expNode2 && dest == expNode1)) continue;
 
             if (dist[dest] > via_cost) {
                 dist[dest] = via_cost;
-                pq.push({dest, -via_cost});
+                pq.push({-via_cost, dest});
 
                 //최단 경로 기록
                 if(expNode1 == -1 && expNode2 == -1)
@@ -73,8 +73,8 @@ int main(){
     for(int i = 0; i < M; i++){
         cin >> a >> b >> t;
 
-        graph[a].push_back({b, t});
-        graph[b].push_back({a, t});
+        graph[a].push_back({t, b});
+        graph[b].push_back({t, a});
     }
 
     Solution();
