@@ -22,12 +22,13 @@ bool is_possible(int r, int c, int k){
         if(board[i][c] == k && i != r) return false;
 
         //3 * 3 검사 
-        int nr = ((r / 3) * 3 + 1) + (i - 1) / 3;
-        int nc = ((c / 3) * 3 + 1) + (i - 1) % 3;
+        int nr = ((r - 1) / 3) * 3 + 1 + (i - 1) / 3;
+        int nc = ((c - 1) / 3) * 3 + 1 + (i - 1) % 3;
 
         if((board[nr][nc] == k) && (nr != r || nc != c)) return false;
 
-
+    }
+    
     return true;
 }
 
