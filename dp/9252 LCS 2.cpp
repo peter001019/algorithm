@@ -32,6 +32,8 @@ void sol(){
         }
     }
 
+    reverse(ans.begin(), ans.end());
+
     cout << cnt << "\n";
     cout << ans;
 }
