@@ -23,7 +23,6 @@ void bfs(){
 
         for(int i: graph[v]){
             dp[i] = max(dp[i], dp[v] + D[i]);
-            if(i == W) cout << dp[W] << "\n";
 
             indegree[i]--;
 
