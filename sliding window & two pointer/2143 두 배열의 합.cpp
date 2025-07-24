@@ -14,7 +14,7 @@ ll ans;
 void cul_sum(){
     //A 누적합
     for(int i = 0; i < n; i++){
-        int sum = A[i];
+        ll sum = A[i];
         A_sum.push_back(sum);
         for(int j = i + 1; j < n; j++){
             sum += A[j];
@@ -24,7 +24,7 @@ void cul_sum(){
 
     //B 누적합
     for(int i = 0; i < m; i++){
-        int sum = B[i];
+        ll sum = B[i];
         B_sum.push_back(sum);
         for(int j = i + 1; j < m; j++){
             sum += B[j];
@@ -43,7 +43,7 @@ void sol(){
     int b = B_sum.size() - 1;
 
     while(a < A_sum.size() && b > -1){
-        int sum = A_sum[a] + B_sum[b];
+        ll sum = A_sum[a] + B_sum[b];
 
         if(sum > T) b--;
         if(sum < T) a++;
